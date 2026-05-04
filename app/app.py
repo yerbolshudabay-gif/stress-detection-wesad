@@ -69,6 +69,16 @@ preset_stress = {
 input_values = {}
 st.sidebar.markdown("---")
 
+hints = {
+    'EDA_wrist':  '⬆️ выше = больше стресс',
+    'TEMP_wrist': '⬇️ ниже = больше стресс',
+    'ACC_wrist':  '⬆️ выше = больше движений',
+    'EDA_chest':  '⬆️ выше = больше стресс',
+    'EMG':        '⬇️ ниже = мышцы напряжены',
+    'TEMP_chest': '⬇️ ниже = больше стресс',
+    'ACC_chest':  '⬆️ выше = больше движений',
+}
+
 for feat in features:
     min_v, max_v, default, unit = ranges[feat]
     
@@ -78,7 +88,7 @@ for feat in features:
         default = preset_stress[feat]
     
     input_values[feat] = st.sidebar.slider(
-        f"{ru_names[feat]} ({unit})",
+        f"{ru_names[feat]} ({unit}) — {hints[feat]}",
         min_value=float(min_v),
         max_value=float(max_v),
         value=float(default),
