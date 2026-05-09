@@ -15,9 +15,9 @@ st.set_page_config(
 # ─── Загрузка модели ───
 @st.cache_resource
 def load_model():
-    model    = joblib.load('../models/xgb_model.pkl')
-    scaler   = joblib.load('../models/scaler.pkl')
-    features = joblib.load('../models/features.pkl')
+    model    = joblib.load('models/xgb_model.pkl')
+    scaler   = joblib.load('models/scaler.pkl')
+    features = joblib.load('models/features.pkl')
     return model, scaler, features
 
 model, scaler, features = load_model()
